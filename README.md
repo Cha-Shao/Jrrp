@@ -10,6 +10,12 @@
 
 `/lvereload` 重载配置文件
 
+### PAPI
+
+`%luckyvalue%` 自己的幸运值
+
+`%luckyvalue_<player>%` 指定玩家的幸运值
+
 ### 权限
 
 `lve.get` 获得自己的幸运值 `默认开启`
