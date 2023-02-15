@@ -6,7 +6,7 @@
 
 `/lve [player_name]` 获得其他玩家的幸运值
 
-`/forcelve [player_name]` 强制获得未在线玩家的幸运值
+`/forcelve [player_name]` 强制获得未在线玩家的幸运值，将不会发送到聊天栏
 
 `/lvereload` 重载配置文件
 

@@ -4,18 +4,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
 public class ForceLucky implements CommandExecutor {
     private static final Plugin plugin = LuckyValue.getPlugin(LuckyValue.class);
-
-    private void sendBroadcast(String message) {
-        for (Player player: Bukkit.getOnlinePlayers()) {
-            player.sendMessage(message);
-        }
-    }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender,
@@ -28,10 +21,7 @@ public class ForceLucky implements CommandExecutor {
                 String otherPlayer = args[0];
                 int luckyValue = GetData.getValue(otherPlayer);
                 String message = GetData.getMessage(otherPlayer, luckyValue);
-                String command = GetData.getCommand(otherPlayer, luckyValue);
-                if (command != null)
-                    RunCommand.asConsole(command);
-                sendBroadcast(message);
+                sender.sendMessage(message);
             }
             else {
                 String message = plugin.getConfig().getString("needPlayer");

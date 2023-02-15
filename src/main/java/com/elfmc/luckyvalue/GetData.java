@@ -11,9 +11,9 @@ public class GetData {
     private static final Plugin plugin = LuckyValue.getPlugin(LuckyValue.class);
     public static int getValue(@NotNull String playerName) {
         int seed = (
-                plugin.getConfig().getString("secret")
-                        + playerName
-                        + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"))).hashCode();
+            plugin.getConfig().getString("secret")
+                + playerName
+                + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"))).hashCode();
         Random randomNumb = new Random(seed);
         return randomNumb.nextInt(100) + 1;
     }
@@ -45,8 +45,8 @@ public class GetData {
         }
         assert message != null;
         message = message.
-                replace("{player}", playerName)
-                .replace("{value}", String.valueOf(luckyValue));
+            replace("{player}", playerName)
+            .replace("{value}", String.valueOf(luckyValue));
         return message;
     }
 

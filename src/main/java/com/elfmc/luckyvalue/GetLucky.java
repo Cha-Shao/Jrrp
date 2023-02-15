@@ -9,11 +9,7 @@ import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
 public class GetLucky implements CommandExecutor {
-    Plugin plugin;
-
-    public GetLucky() {
-        this.plugin = LuckyValue.getPlugin(LuckyValue.class);
-    }
+    private static final Plugin plugin = LuckyValue.getPlugin(LuckyValue.class);
 
     private void sendBroadcast(String message) {
         for (Player player: Bukkit.getOnlinePlayers()) {
@@ -28,6 +24,7 @@ public class GetLucky implements CommandExecutor {
                              String[] args
     ) {
         if (cmd.getName().equalsIgnoreCase("lve")) {
+//            自己的幸运值
             if (args.length == 0) {
                 int luckyValue = GetData.getValue(sender.getName());
                 String message = GetData.getMessage(sender.getName(), luckyValue);
@@ -37,22 +34,24 @@ public class GetLucky implements CommandExecutor {
                 sendBroadcast(message);
                 Bukkit.getServer().getConsoleSender().sendMessage(message);
             }
+//            其他人的幸运值
             else {
                 if (sender.hasPermission("lve.other")) {
-                    String otherPlayer = args[0];
-                    Player onlineStatus = Bukkit.getPlayer(otherPlayer);
-                    if (onlineStatus != null) {
-                        int luckyValue = GetData.getValue(sender.getName());
-                        String message = GetData.getMessage(sender.getName(), luckyValue);
-                        String command = GetData.getCommand(sender.getName(), luckyValue);
+                    Player otherPlayer = Bukkit.getPlayer(args[0]);
+                    if (otherPlayer != null) {
+                        int luckyValue = GetData.getValue(otherPlayer.getName());
+                        String message = GetData.getMessage(otherPlayer.getName(), luckyValue);
+                        String command = GetData.getCommand(otherPlayer.getName(), luckyValue);
                         if (command != null)
                             RunCommand.asConsole(command);
                         sendBroadcast(message);
+                        Bukkit.getServer().getConsoleSender().sendMessage(message);
                     }
                     else {
                         String message = plugin.getConfig().getString("notOnline");
                         assert message != null;
                         sender.sendMessage(message);
+                        Bukkit.getServer().getConsoleSender().sendMessage(message);
                     }
                 }
                 else {
