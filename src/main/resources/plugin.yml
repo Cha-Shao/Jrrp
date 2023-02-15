@@ -1,0 +1,38 @@
+name: LuckyValue
+version: '${version}'
+main: com.elfmc.luckyvalue.LuckyValue
+api-version: 1.18
+prefix: LV
+authors: [Cha_Shao]
+description: 今日人品
+website: elfmc.com
+commands:
+  lve:
+    description: 获得今日人品
+    usage: /<command> [player]
+    permission: lve.get
+  lvereload:
+    description: 重载配置文件
+    usage: /<command>
+    permission: lve.reload
+  forcelve:
+    description: 强制查看玩家的今日人品
+    usage: /<command>
+    permission: lve.force
+permissions:
+  lve:
+    description: 今日人品
+    default: op
+    children:
+      lve.get:
+        description: 查看自己的今日人品
+        default: true
+      lve.other:
+        description: 查看其他人的今日人品
+        default: op
+      lve.reload:
+        description: 重载配置文件
+        default: op
+      lve.force:
+        description: 强制查看玩家的今日人品
+        default: op
