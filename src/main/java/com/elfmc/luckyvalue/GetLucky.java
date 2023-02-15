@@ -29,7 +29,11 @@ public class GetLucky implements CommandExecutor {
     ) {
         if (cmd.getName().equalsIgnoreCase("lve")) {
             if (args.length == 0) {
-                String message = GetLuckyMessage.getMessage(sender.getName());
+                int luckyValue = GetData.getValue(sender.getName());
+                String message = GetData.getMessage(sender.getName(), luckyValue);
+                String command = GetData.getCommand(sender.getName(), luckyValue);
+                if (command != null)
+                    RunCommand.asConsole(command);
                 sendBroadcast(message);
                 Bukkit.getServer().getConsoleSender().sendMessage(message);
             }
@@ -38,7 +42,11 @@ public class GetLucky implements CommandExecutor {
                     String otherPlayer = args[0];
                     Player onlineStatus = Bukkit.getPlayer(otherPlayer);
                     if (onlineStatus != null) {
-                        String message = GetLuckyMessage.getMessage(otherPlayer);
+                        int luckyValue = GetData.getValue(sender.getName());
+                        String message = GetData.getMessage(sender.getName(), luckyValue);
+                        String command = GetData.getCommand(sender.getName(), luckyValue);
+                        if (command != null)
+                            RunCommand.asConsole(command);
                         sendBroadcast(message);
                     }
                     else {

@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.elfmc.luckyvalue'
-version = '1.0-SNAPSHOT'
+version = '1.2.2'
 
 repositories {
     mavenCentral()
@@ -15,10 +15,14 @@ repositories {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
 }
 
 dependencies {
     compileOnly 'io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.10.0'
 }
 
 def targetJavaVersion = 17

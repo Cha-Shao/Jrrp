@@ -26,7 +26,11 @@ public class ForceLucky implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("forcelve")) {
             if (args.length > 0) {
                 String otherPlayer = args[0];
-                String message = GetLuckyMessage.getMessage(otherPlayer);
+                int luckyValue = GetData.getValue(otherPlayer);
+                String message = GetData.getMessage(otherPlayer, luckyValue);
+                String command = GetData.getCommand(otherPlayer, luckyValue);
+                if (command != null)
+                    RunCommand.asConsole(command);
                 sendBroadcast(message);
             }
             else {

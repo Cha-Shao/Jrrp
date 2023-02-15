@@ -1,26 +1,38 @@
 # {player}为玩家名，{value}为幸运值
-message:
-  at_100: <§d算命占卜§r> 精灵们今天非常开心！他们会尽可能给所有人带来好运的。
-  at_99: <§d算命占卜§r> 精灵们今天非常开心！他们会尽可能给所有人带来好运的。
-  lt_90: <§d算命占卜§r> 精灵们今天的心情很不错。你今天要走运了。
-  lt_60: <§d算命占卜§r> 精灵们今天的心情很不错。你今天要走运了。
-  lt_50: <§d算命占卜§r> 精灵们今天没有任何感情倾向。因此今天的运势全掌握在你手中。
-  at_50: <§d算命占卜§r> 这可罕见了。精灵们今天很冷漠。
-  lt_40: <§d算命占卜§r> 今天精灵们有些烦躁。你要走霉运了。
-  lt_11: <§d算命占卜§r> 今天精灵们十分气恼。你要走霉运了。
-  lt_1: <§d算命占卜§r> 精灵今天十分不满。它们会竭尽全力给你捣蛋的。
-  at_1: <§d算命占卜§r> 精灵今天十分不满。它们会竭尽全力给你捣蛋的。
 
+# 每次使用/lve都会执行一次command的内容，请考虑使用luckperms设置冷却，或取消command
+message:
+  at_100:
+    message: <§d算命占卜§r> 精灵们今天非常开心！他们会尽可能给{player}带来好运的。
+    command: give {player} diamond 1
+  at_99:
+    message: <§d算命占卜§r> 精灵们今天非常开心！他们会尽可能给{player}带来好运的。
+    command:
+  lt_90:
+    message: <§d算命占卜§r> 精灵们今天的心情很不错。{player}今天要走运了。
+    command:
+  lt_60:
+    message: <§d算命占卜§r> 精灵们今天的心情很不错。{player}今天要走运了。
+    command:
+  lt_50:
+    message: <§d算命占卜§r> 精灵们今天没有任何感情倾向。因此今天的运势全掌握在{player}手中。
+    command: give {player} apple 1
+  at_50:
+    message: <§d算命占卜§r> 这可罕见了。精灵们今天对{player}很冷漠。
+    command:
+  lt_40:
+    message: <§d算命占卜§r> 今天精灵们有些烦躁。{player}要走霉运了。
+    command:
+  lt_11:
+    message: <§d算命占卜§r> 今天精灵们有些烦躁。{player}要走霉运了。
+    command:
+  lt_1:
+    message: <§d算命占卜§r> 今天精灵们十分气恼。{player}要走霉运了。
+    command:
+  at_1:
+    message: <§d算命占卜§r> 精灵今天十分不满。它们会竭尽全力给{player}捣蛋的。
+    command: execute as {player} run summon lightning_bolt ~ ~ ~
   # at_100: '{player}今日气运是{value}！'
-  # at_99: '{player}今日气运是{value}！'
-  # lt_90: '{player}今日气运是{value}！'
-  # lt_60: '{player}今日气运是{value}！'
-  # lt_50: '{player}今日气运是{value}！'
-  # at_50: '{player}今日气运是{value}！'
-  # lt_40: '{player}今日气运是{value}！'
-  # lt_11: '{player}今日气运是{value}！'
-  # lt_1: '{player}今日气运是{value}！'
-  # at_1: '{player}今日气运是{value}！'
 
 # 今日人品的随机种子
 secret: hello

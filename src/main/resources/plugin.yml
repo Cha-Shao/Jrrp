@@ -6,6 +6,8 @@ prefix: LV
 authors: [Cha_Shao]
 description: 今日人品
 website: elfmc.com
+softdepend:
+  - PlaceholderAPI
 commands:
   lve:
     description: 获得今日人品
