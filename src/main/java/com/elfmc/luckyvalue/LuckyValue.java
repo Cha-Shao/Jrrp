@@ -18,7 +18,7 @@ public final class LuckyValue extends JavaPlugin {
     private void setupCommand() {
         // 注册指令
         final PluginCommand baseCommand = getCommand("lve");
-        final PluginCommand forceCommand = getCommand("forcelve");
+        final PluginCommand forceCommand = getCommand("lveforce");
         final PluginCommand reloadCommand = getCommand("lvereload");
         if (baseCommand == null || forceCommand == null || reloadCommand == null) {
             return;
